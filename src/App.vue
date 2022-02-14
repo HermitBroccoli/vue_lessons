@@ -1,30 +1,68 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <div class="app">
+        
+        
+    </div>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            posts: [
+                {id: 1, title: 'JavaScript', body: 'описание поста'},
+                {id: 2, title: 'JavaScript', body: 'описание поста 2'},
+                {id: 3, title: 'JavaScript', body: 'описание поста 3'},
+            ],
+            title: '',
+            body: '',
+        }
+    }, methods: {
+        creatPost() {
+            const newPost = {
+                id: Date.now(),
+                title: this.title,
+                body: this.body,
+            }
+            this.posts.push(newPost);
+            this.title = '';
+            this.body = '';
+        },
+    }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+.app {
+    padding: 20px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+
+
+.input {
+    widows: 100%;
+    border: 1px solid teal;
+    margin-top: 15px;
+    padding: 10px 15px;
+}
+
+.btn {
+    align-self: flex-end;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: none;
+    color: teal;
+    border: 1px solid teal;
 }
 </style>
