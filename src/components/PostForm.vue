@@ -6,7 +6,7 @@
       type="text"
       placeholder="Название"
     />
-    <my-input v-model="post.body" type="text" placeholder="Описание" />
+    <my-input v-model:value="post.body" type="text" placeholder="Описание" />
     <my-button
       class="btn"
       style="align-self: flex-end; margin-top: 15px"
